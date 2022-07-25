@@ -1,10 +1,14 @@
 import React, { useRef, useState } from 'react';
 import { Button, Col, Container, Form, Row } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import auth from '../../../firebase.init';
 import { useUpdateProfile } from 'react-firebase-hooks/auth';
 import SocialLogin from '../SocialLogin/SocialLogin';
+import Loading from '../../Shared/Loading/Loading';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 
 const Register = () => {
@@ -13,6 +17,9 @@ const Register = () => {
     const passwordRef = useRef('');
     const [updateProfile, updating, profileError] = useUpdateProfile(auth);
     const [agree, setAgree] = useState(false);
+    const navigate = useNavigate();
+    const location = useLocation();
+    const from = location.state?.from?.pathname || "/";
 
     const [
         createUserWithEmailAndPassword,
@@ -29,8 +36,13 @@ const Register = () => {
         await updateProfile({ displayName: name });
     }
 
+    if (user) {
+        navigate(from, { replace: true });
+    }
 
-
+    if (loading || updating) {
+        return <Loading></Loading>
+    }
     return (
         <Container className="my-5">
             <Row>
@@ -65,6 +77,7 @@ const Register = () => {
                             <Button className={`w-100 fs-5 ${agree ? "" : "disabled"}`} variant="danger" type="submit">
                                 Register
                             </Button>
+                            <p className="text-danger text-center py-1 fs-5">{error?.message} {profileError?.message}</p>
                         </Form>
                         <p className="pt-2">Already have an account? <Link to="/login" className="text-decoration-none">Login Now.</Link></p>
                         <SocialLogin></SocialLogin>
@@ -72,6 +85,7 @@ const Register = () => {
                 </Col>
                 <Col xs={0} lg={3} md={2}></Col>
             </Row>
+            <ToastContainer />
         </Container >
     );
 };
