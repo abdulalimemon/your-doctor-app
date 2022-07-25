@@ -8,7 +8,7 @@ const Header = () => {
             <Container>
                 <Navbar.Brand as={Link} to="/" ><h2>Your <span className="text-danger">Doctor</span></h2></Navbar.Brand>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-                <Navbar.Collapse id="responsive-navbar-nav" className="justify-content-end">
+                <Navbar.Collapse id="responsive-navbar-nav" className="justify-content-end text-center">
                     <Nav className="fs-5">
                         <Nav.Link as={Link} to="/blog">Blogs</Nav.Link>
                         <Nav.Link as={Link} to="/about">About</Nav.Link>

@@ -5,10 +5,16 @@
     .experience-right{
         padding: 15px;
     }
+    .login-card{
+        padding: 15px;
+    }
 }
 
 @media only screen and (min-width : 557px) and (max-width : 992px) {
     .xs-height {
         height: 550px;
+    }
+    .login-card{
+        padding: 20px;
     }
 }

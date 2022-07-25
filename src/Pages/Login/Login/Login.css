@@ -1,0 +1,15 @@
+.login-card{
+    padding: 30px;
+}
+
+@media only screen and (max-width : 576px) {
+    .login-card{
+        padding: 15px;
+    }
+}
+
+@media only screen and (min-width : 557px) and (max-width : 992px) {
+    .login-card{
+        padding: 20px;
+    }
+}
