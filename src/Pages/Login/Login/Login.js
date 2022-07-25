@@ -1,10 +1,29 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { Button, Col, Container, Form, Row } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import './Login.css';
+import auth from '../../../firebase.init';
+import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
+
+
 
 
 const Login = () => {
+    const emailRef = useRef('');
+    const passwordRef = useRef('');
+
+    const [
+        signInWithEmailAndPassword,
+        user,
+        loading,
+        error,
+    ] = useSignInWithEmailAndPassword(auth);
+
+    const handleSubmit = event => {
+        event.preventDefault();
+    }
+
+
     return (
         <Container className="my-5">
             <Row>
@@ -12,21 +31,15 @@ const Login = () => {
                 <Col xs={12} lg={6} md={8} >
                     <div className="login-card border rounded-3">
                         <h2 className="text-danger text-center fs-2 mb-4">Login</h2>
-                        <Form>
+                        <Form onSubmit={handleSubmit}>
                             <Form.Group className="mb-3" controlId="formBasicEmail">
                                 <Form.Label>Email Address</Form.Label>
-                                <Form.Control type="email" placeholder="Enter Your Email Address." />
-                                <Form.Text className="text-muted">
-                                    We'll never share your email with anyone else.
-                                </Form.Text>
+                                <Form.Control ref={emailRef} type="email" placeholder="Enter Your Email Address." required />
                             </Form.Group>
 
                             <Form.Group className="mb-3" controlId="formBasicPassword">
                                 <Form.Label>Password</Form.Label>
-                                <Form.Control type="password" placeholder="Enter Your Password." />
-                            </Form.Group>
-                            <Form.Group className="mb-3" controlId="formBasicCheckbox">
-                                <Form.Check type="checkbox" label="A" />
+                                <Form.Control ref={passwordRef} type="password" placeholder="Enter Your Password." required />
                             </Form.Group>
                             <Button className="w-100 fs-5" variant="danger" type="submit">
                                 Login

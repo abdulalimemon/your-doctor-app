@@ -1,11 +1,34 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { Button, Col, Container, Form, Row } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-
-
+import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import auth from '../../../firebase.init';
+import { useUpdateProfile } from 'react-firebase-hooks/auth';
 
 
 const Register = () => {
+    const nameRef = useRef('');
+    const emailRef = useRef('');
+    const passwordRef = useRef('');
+    const [updateProfile, updating, profileError] = useUpdateProfile(auth);
+
+    const [
+        createUserWithEmailAndPassword,
+        user, loading, error] = useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
+
+    const handleSubmit = async (event) => {
+        event.preventDefault();
+        const name = nameRef.current.value;
+        const email = emailRef.current.value;
+        const password = passwordRef.current.value;
+
+        await createUserWithEmailAndPassword(email, password);
+        alert('An user verification email has been sent to your email address. Please check your inbox or spam folder.');
+        await updateProfile({ displayName: name });
+    }
+
+
+
     return (
         <Container className="my-5">
             <Row>
@@ -13,10 +36,15 @@ const Register = () => {
                 <Col xs={12} lg={6} md={8} >
                     <div className="login-card border rounded-3">
                         <h2 className="text-danger text-center fs-2 mb-4">Register</h2>
-                        <Form>
+                        <Form onSubmit={handleSubmit}>
+                            <Form.Group className="mb-3" controlId="formBasicName">
+                                <Form.Label>Your Name</Form.Label>
+                                <Form.Control ref={nameRef} type="text" placeholder="Enter Your Name." required />
+                            </Form.Group>
+
                             <Form.Group className="mb-3" controlId="formBasicEmail">
                                 <Form.Label>Email Address</Form.Label>
-                                <Form.Control type="email" placeholder="Enter Your Email Address." />
+                                <Form.Control ref={emailRef} type="email" placeholder="Enter Your Email Address." required />
                                 <Form.Text className="text-muted">
                                     We'll never share your email with anyone else.
                                 </Form.Text>
@@ -24,7 +52,7 @@ const Register = () => {
 
                             <Form.Group className="mb-3" controlId="formBasicPassword">
                                 <Form.Label>Password</Form.Label>
-                                <Form.Control type="password" placeholder="Enter Your Password." />
+                                <Form.Control ref={passwordRef} type="password" placeholder="Enter Your Password." required />
                             </Form.Group>
                             <Form.Group className="mb-3" controlId="formBasicCheckbox">
                                 <Form.Check type="checkbox" label="A" />
