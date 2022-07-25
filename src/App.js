@@ -11,6 +11,7 @@ import Register from './Pages/Login/Register/Register';
 import RequireAuth from './Pages/Login/RequireAuth/RequireAuth';
 import Blogs from './Pages/Blogs/Blogs';
 import ForgotPassword from './Pages/Login/ForgotPassword/ForgotPassword';
+import About from './Pages/About/About';
 
 function App() {
   return (
@@ -22,9 +23,15 @@ function App() {
         <Route path="/login" element={<Login></Login>}></Route>
         <Route path="/register" element={<Register></Register>}></Route>
         <Route path="/forgotpassword" element={<ForgotPassword></ForgotPassword>}></Route>
-        <Route path="/blog" element={<RequireAuth>
-          <Blogs></Blogs>
-        </RequireAuth>}>
+        <Route path="/blog" element={
+          <RequireAuth>
+            <Blogs></Blogs>
+          </RequireAuth>}>
+        </Route>
+        <Route path="/about" element={
+          <RequireAuth>
+            <About></About>
+          </RequireAuth>}>
         </Route>
         <Route path="/checkout/:ID" element={
           <RequireAuth>
