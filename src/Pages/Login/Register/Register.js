@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import { Button, Col, Container, Form, Row } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
@@ -12,6 +12,7 @@ const Register = () => {
     const emailRef = useRef('');
     const passwordRef = useRef('');
     const [updateProfile, updating, profileError] = useUpdateProfile(auth);
+    const [agree, setAgree] = useState(false);
 
     const [
         createUserWithEmailAndPassword,
@@ -56,9 +57,12 @@ const Register = () => {
                                 <Form.Control ref={passwordRef} type="password" placeholder="Enter Your Password." required />
                             </Form.Group>
                             <Form.Group className="mb-3" controlId="formBasicCheckbox">
-                                <Form.Check type="checkbox" label="A" />
+                                <div className={`d-flex ${agree ? "text-dark" : "text-danger"}`} >
+                                    <Form.Check onClick={() => setAgree(!agree)} type="checkbox" />
+                                    <Form.Label className="ms-3">Accept Your Doctor Terms And Conditions.</Form.Label>
+                                </div>
                             </Form.Group>
-                            <Button className="w-100 fs-5" variant="danger" type="submit">
+                            <Button className={`w-100 fs-5 ${agree ? "" : "disabled"}`} variant="danger" type="submit">
                                 Register
                             </Button>
                         </Form>
@@ -68,7 +72,7 @@ const Register = () => {
                 </Col>
                 <Col xs={0} lg={3} md={2}></Col>
             </Row>
-        </Container>
+        </Container >
     );
 };
 
