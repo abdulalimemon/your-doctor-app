@@ -1,9 +1,10 @@
 import React, { useRef } from 'react';
 import { Button, Col, Container, Form, Row } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 import './Login.css';
 import auth from '../../../firebase.init';
 import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import Loading from '../../Shared/Loading/Loading';
 
 
 
@@ -11,6 +12,9 @@ import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 const Login = () => {
     const emailRef = useRef('');
     const passwordRef = useRef('');
+    const navigate = useNavigate();
+    const location = useLocation();
+    const from = location.state?.from?.pathname || "/";
 
     const [
         signInWithEmailAndPassword,
@@ -21,8 +25,18 @@ const Login = () => {
 
     const handleSubmit = event => {
         event.preventDefault();
+        const email = emailRef.current.value;
+        const password = passwordRef.current.value;
+        signInWithEmailAndPassword(email, password)
     }
 
+    if (user) {
+        navigate(from, { replace: true });
+    }
+
+    if (loading) {
+        return <Loading></Loading>
+    }
 
     return (
         <Container className="my-5">
@@ -44,6 +58,7 @@ const Login = () => {
                             <Button className="w-100 fs-5" variant="danger" type="submit">
                                 Login
                             </Button>
+                            <p className="text-danger text-center py-1 fs-5">{error?.message}</p>
                         </Form>
                         <p className="text-center pt-2"><Link to="/forgotpassword" className="text-decoration-none">Forgot password</Link></p>
                         <p>New to Your Doctor? <Link to="/register" className="text-decoration-none">Register Now.</Link></p>
