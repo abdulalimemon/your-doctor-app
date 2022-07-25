@@ -1,11 +1,12 @@
 import React from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
+import './Blogs.css';
 
 const Blogs = () => {
     return (
         <Container className="my-5">
             <Row className="align-items-center">
-                <Col>
+                <Col className="blog-padding">
                     <h2 className="text-center text-danger fs-2">Difference between authorization and authentication</h2>
                     <p className=" fs-4">Authentication is the process of determining whether someone or something is who or what it says it is. Authentication provides access control for systems by checking if a user's credentials match the credentials in a database of authorized users or in a data authentication server.
 

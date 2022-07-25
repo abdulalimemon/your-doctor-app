@@ -1,0 +1,13 @@
+@media only screen and (max-width : 576px) {
+   .blog-padding{
+       padding: 0 20px;
+   } 
+   .about-title{
+       text-align: center;
+   }
+}
+@media only screen and (min-width : 557px) and (max-width : 992px) {
+    .about-title{
+        text-align: center;
+    }
+}
