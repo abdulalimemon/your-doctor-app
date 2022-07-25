@@ -1,12 +1,16 @@
 import React from 'react';
 import { Button, Col, Container, Row, Form } from 'react-bootstrap';
 import { useParams } from 'react-router';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 const Checkout = () => {
-    const { ID, name } = useParams();
+    const { ID } = useParams();
 
     const handleSubmit = (event) => {
         event.preventDefault();
+        toast('Thank you for the booking..');
     }
 
     return (
@@ -41,6 +45,7 @@ const Checkout = () => {
                 </Col>
                 <Col xs={0} lg={3} md={2}></Col>
             </Row>
+            <ToastContainer />
         </Container >
     );
 };
