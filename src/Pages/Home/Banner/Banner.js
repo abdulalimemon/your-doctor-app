@@ -17,7 +17,7 @@ const Banner = () => {
                         alt="First slide"
                     />
                     <Carousel.Caption>
-                        <h3 className="fs-2 text-danger">We Provide</h3>
+                        <h3 className="fs-2 text-danger">I Provide</h3>
                         <h2 className="fs-1 fw-bolder">Full Medical Care</h2>
                         <p className="fs-5">Helping thousands of people to get high-class medical services. Your health is your most important asset.</p>
                         <Button variant="danger" className="my-2 py-2 px-5 rounded-pill">Make Appointment</Button>
@@ -31,7 +31,7 @@ const Banner = () => {
                     />
 
                     <Carousel.Caption>
-                        <h3 className="fs-2 text-danger">We Give Solution</h3>
+                        <h3 className="fs-2 text-danger">I Give Solution</h3>
                         <h2 className="fs-1 fw-bolder">To Your Pain</h2>
                         <p className="fs-5">Helping thousands of people to get high-class medical services. Your health is your most important asset.</p>
                         <Button variant="danger" className="my-2 py-2 px-5 rounded-pill">Make Appointment</Button>
@@ -45,7 +45,7 @@ const Banner = () => {
                     />
 
                     <Carousel.Caption>
-                        <h3 className="fs-2 text-danger">We Provide</h3>
+                        <h3 className="fs-2 text-danger">I Provide</h3>
                         <h2 className="fs-1 fw-bolder text-light">Full Medical Care</h2>
                         <p className="fs-5 text-light">Helping thousands of people to get high-class medical services. Your health is your most important asset.</p>
                         <Button variant="danger" className="my-2 py-2 px-5 rounded-pill">Make Appointment</Button>

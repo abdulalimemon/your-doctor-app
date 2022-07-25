@@ -1,0 +1,17 @@
+[
+    {
+        "id": 1,
+        "name": "Online Consultations",
+        "img": "https://i.ibb.co/sQRSsdg/service1.png"
+    },
+    {
+        "id": 2,
+        "name": "Offline Consultations",
+        "img": "https://i.ibb.co/VgdrW1g/service2.png"
+    },
+    {
+        "id": 3,
+        "name": "Primary Care",
+        "img": "https://i.ibb.co/hXbrFjV/service3.png"
+    }
+]
