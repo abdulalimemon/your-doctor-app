@@ -2,6 +2,9 @@
     .xs-height {
         height: 500px;
     }
+    .experience-right{
+        padding: 15px;
+    }
 }
 
 @media only screen and (min-width : 557px) and (max-width : 992px) {
