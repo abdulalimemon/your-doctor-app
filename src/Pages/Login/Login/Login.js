@@ -6,6 +6,7 @@ import auth from '../../../firebase.init';
 import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import Loading from '../../Shared/Loading/Loading';
 import SocialLogin from '../SocialLogin/SocialLogin';
+import PageTitle from '../../Shared/PageTitle/PageTitle';
 
 
 
@@ -41,6 +42,7 @@ const Login = () => {
 
     return (
         <Container className="my-5">
+            <PageTitle title="Login"></PageTitle>
             <Row>
                 <Col xs={0} lg={3} md={2}></Col>
                 <Col xs={12} lg={6} md={8} >

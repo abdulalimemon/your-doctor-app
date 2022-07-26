@@ -8,6 +8,7 @@ import SocialLogin from '../SocialLogin/SocialLogin';
 import Loading from '../../Shared/Loading/Loading';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import PageTitle from '../../Shared/PageTitle/PageTitle';
 
 
 
@@ -45,6 +46,7 @@ const Register = () => {
     }
     return (
         <Container className="my-5">
+            <PageTitle title="Register"></PageTitle>
             <Row>
                 <Col xs={0} lg={3} md={2}></Col>
                 <Col xs={12} lg={6} md={8} >

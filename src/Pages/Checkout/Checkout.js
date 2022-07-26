@@ -3,6 +3,7 @@ import { Button, Col, Container, Row, Form } from 'react-bootstrap';
 import { useParams } from 'react-router';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import PageTitle from '../Shared/PageTitle/PageTitle';
 
 
 const Checkout = () => {
@@ -15,6 +16,7 @@ const Checkout = () => {
 
     return (
         <Container className="my-5">
+            <PageTitle title="Checkout"></PageTitle>
             <Row>
                 <Col xs={0} lg={3} md={2}></Col>
                 <Col xs={12} lg={6} md={8} >

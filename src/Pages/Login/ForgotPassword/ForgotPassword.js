@@ -4,6 +4,7 @@ import { useSendPasswordResetEmail } from 'react-firebase-hooks/auth';
 import auth from '../../../firebase.init';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import PageTitle from '../../Shared/PageTitle/PageTitle';
 
 const ForgotPassword = () => {
     const emailRef = useRef('');
@@ -18,6 +19,7 @@ const ForgotPassword = () => {
 
     return (
         <Container className="my-5">
+            <PageTitle title="Forgot Password"></PageTitle>
             <Row>
                 <Col xs={0} lg={3} md={2}></Col>
                 <Col xs={12} lg={6} md={8} >

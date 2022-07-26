@@ -1,11 +1,13 @@
 import React from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
 import emon from '../../img/emon.png';
+import PageTitle from '../Shared/PageTitle/PageTitle';
 
 
 const About = () => {
     return (
         <Container className="my-5">
+            <PageTitle title="About"></PageTitle>
             <Row className="align-items-center">
                 <Col xs={12} lg={6} md={12} className=" d-flex justify-content-center align-items-center">
                     <img className="img-fluid mb-4" src={emon} alt="emon" />

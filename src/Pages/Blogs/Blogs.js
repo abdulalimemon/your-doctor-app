@@ -1,10 +1,12 @@
 import React from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
+import PageTitle from '../Shared/PageTitle/PageTitle';
 import './Blogs.css';
 
 const Blogs = () => {
     return (
         <Container className="my-5">
+            <PageTitle title="Blogs"></PageTitle>
             <Row className="align-items-center">
                 <Col className="blog-padding">
                     <h2 className="text-center text-danger fs-2">Difference between authorization and authentication</h2>
