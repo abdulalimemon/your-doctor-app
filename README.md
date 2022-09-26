@@ -1,6 +1,6 @@
 # Getting Started with "Your Doctor App"
 
-This project was bootstrapped with [Your Doctor App](https://ur-dr1.web.app/)
+Project Link [Your Doctor App](https://ur-dr1.web.app/)
 
 ## Features
 
